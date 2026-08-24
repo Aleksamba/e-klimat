@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Эталон Климат — ремонт кондиционеров и вентиляции в Челябинске</title>
+  <meta name="description" content="Эталон Климат — ремонт, обслуживание, монтаж и диагностика кондиционеров и вентиляции в Челябинске. Выезд специалиста, гарантия на работы.">
+  <style>
+    :root{
+      --bg:#f5f7f8; --card:#fff; --text:#111827; --muted:#68717c;
+      --accent:#005aff; --accent-dark:#0047cc; --dark:#10191a;
+      --line:#e4e9eb; --radius:24px; --shadow:0 18px 55px rgba(18,34,39,.08);
+      --container:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(var(--container),calc(100% - 40px));margin:auto}
+    .top{background:var(--dark);color:#dbe5e5;font-size:13px}
+    .top .container{display:flex;justify-content:space-between;padding:9px 0;gap:20px}
+    header{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line)}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:-.4px}
+    .logo-mark{width:36px;height:36px;border-radius:12px;background:var(--accent);display:grid;place-items:center;color:white;font-weight:900}
+    .nav-links{display:flex;gap:25px;color:#4f5961;font-size:14px}
+    .nav-links a:hover{color:var(--accent-dark)}
+    .phone{font-weight:800;white-space:nowrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:13px;padding:14px 20px;background:var(--accent);color:white;font-weight:750;cursor:pointer;transition:.2s}
+    .btn:hover{background:var(--accent-dark);transform:translateY(-1px)}
+    .btn.secondary{background:#edf3f2;color:#1d4b3c}
+    .hero{padding:70px 0 78px;background:linear-gradient(135deg,#eef8f5 0%,#f7f9f9 54%,#eaf1f2 100%);overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:55px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent-dark);background:#e6efff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}
+    h1{font-size:clamp(42px,5.4vw,72px);line-height:.98;letter-spacing:-3.5px;margin:20px 0 24px;max-width:720px}
+    .hero p{font-size:18px;color:var(--muted);max-width:600px;margin:0 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-note{margin-top:17px;color:#7b858c;font-size:13px}
+    .hero-card{background:var(--dark);color:white;border-radius:32px;padding:30px;box-shadow:var(--shadow);position:relative;min-height:390px;overflow:hidden}
+    .hero-card:before,.hero-card:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.12)}
+    .hero-card:before{width:390px;height:390px;right:-170px;top:-100px}
+    .hero-card:after{width:250px;height:250px;right:-70px;top:-30px}
+    .climate-icon{font-size:82px;line-height:1;margin:35px 0 28px}
+    .hero-card h3{font-size:26px;margin:0 0 8px;letter-spacing:-1px}
+    .hero-card p{color:#aab8b8;font-size:15px;margin:0;max-width:310px}
+    .floating{position:absolute;right:24px;bottom:24px;background:white;color:var(--text);padding:14px 16px;border-radius:17px;font-weight:800;box-shadow:0 12px 30px rgba(0,0,0,.18)}
+    section{padding:88px 0}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
+    .section-head h2{font-size:42px;line-height:1.05;letter-spacing:-2px;margin:0}
+    .section-head p{max-width:470px;color:var(--muted);margin:0}
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:25px;min-height:220px;transition:.2s}
+    .service:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .service-icon{width:48px;height:48px;border-radius:15px;background:#e8f0ff;color:var(--accent-dark);display:grid;place-items:center;font-size:22px;margin-bottom:24px}
+    .service h3{margin:0 0 8px;font-size:19px}
+    .service p{margin:0;color:var(--muted);font-size:14px}
+    .price{margin-top:20px;font-weight:850}
+    .dark-section{background:var(--dark);color:white}
+    .dark-section .section-head p{color:#aebaba}
+    .advantages{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .adv{border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:24px;background:rgba(255,255,255,.035)}
+    .adv strong{font-size:34px;display:block;margin-bottom:13px;color:#6be0b2}
+    .adv h3{margin:0 0 7px}
+    .adv p{color:#aebaba;font-size:14px;margin:0}
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{background:white;border:1px solid var(--line);border-radius:22px;padding:24px}
+    .step-num{font-size:13px;color:var(--accent-dark);font-weight:900;margin-bottom:42px}
+    .step h3{margin:0 0 8px}
+    .step p{margin:0;color:var(--muted);font-size:14px}
+    .offer{display:grid;grid-template-columns:1fr 420px;gap:45px;background:#e8f0ff;border-radius:32px;padding:48px}
+    .offer h2{font-size:43px;letter-spacing:-2px;line-height:1.05;margin:0 0 18px}
+    .offer p{color:#5a6e8f;max-width:550px}
+    .offer ul{padding:0;list-style:none;display:grid;gap:10px;color:#29466f}
+    .offer li:before{content:"✓";color:var(--accent-dark);font-weight:900;margin-right:10px}
+    form{background:white;padding:28px;border-radius:24px;box-shadow:0 14px 45px rgba(18,34,39,.08)}
+    form h3{margin:0 0 18px;font-size:23px}
+    label{display:block;font-size:12px;font-weight:800;margin:13px 0 6px;color:#49535a}
+    input,select,textarea{width:100%;border:1px solid #dce3e5;border-radius:12px;padding:13px 14px;font:inherit;outline:none;background:#fbfcfc}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent)}
+    textarea{resize:vertical;min-height:80px}
+    form .btn{width:100%;margin-top:16px}
+    .form-note{font-size:11px;color:#899297;margin-top:10px;text-align:center}
+    .faq{display:grid;gap:10px;max-width:850px}
+    details{background:white;border:1px solid var(--line);border-radius:17px;padding:19px 22px}
+    summary{cursor:pointer;font-weight:800}
+    details p{color:var(--muted);margin:14px 0 0}
+    footer{background:#0b1213;color:#aeb9ba;padding:40px 0}
+    .footer-grid{display:flex;justify-content:space-between;gap:30px;align-items:start}
+    footer .logo{color:white}
+    .footer-contact{text-align:right}
+    .footer-contact a{color:white;font-weight:800}
+    .toast{position:fixed;right:20px;bottom:20px;background:#10191a;color:white;padding:15px 18px;border-radius:14px;box-shadow:var(--shadow);display:none;z-index:50}
+
+
+    .contact-cta{display:grid;grid-template-columns:1fr 390px;gap:45px;align-items:center;background:#e8f0ff;border-radius:32px;padding:48px;position:relative;overflow:hidden}
+    .contact-copy h2{font-size:46px;line-height:1.02;letter-spacing:-2.2px;margin:18px 0 15px;max-width:650px}
+    .contact-copy p{color:#5a6e8f;max-width:600px;font-size:17px;margin:0}
+    .contact-card{background:#10191a;color:#fff;border-radius:24px;padding:27px;display:flex;flex-direction:column;align-items:flex-start;box-shadow:0 18px 55px rgba(18,34,39,.12)}
+    .contact-card span{font-size:13px;color:#aebaba;margin-bottom:7px}
+    .contact-phone{font-size:29px;font-weight:900;letter-spacing:-1px;margin-bottom:4px}
+    .contact-card small{color:#aebaba;margin-bottom:20px}
+    .contact-card .btn{width:100%}
+
+
+    /* ===================== НОВЫЙ ВИЗУАЛ ===================== */
+    header{background:rgba(255,255,255,.96)}
+    .et-sp{color:#4a4a4a;}
+    .kl-sp{color: #5687ea;}
+    .logo-mark{background:#005aff}
+    .hero{min-height:670px;padding:68px 0 62px;position:relative;overflow:hidden;background:linear-gradient(120deg,#fff 0%,#f7faff 54%,#e9f1ff 100%)}
+    .hero-glow{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}
+    .hero-glow-1{width:540px;height:540px;background:rgba(0,90,255,.08);right:-160px;top:-190px}
+    .hero-glow-2{width:320px;height:320px;background:rgba(72,159,255,.08);left:-180px;bottom:-170px}
+    .hero-grid{grid-template-columns:1fr .93fr;gap:38px;position:relative;z-index:1}
+    .hero-copy{padding-top:14px}
+    .hero-copy h1{font-size:clamp(45px,5.1vw,70px);line-height:.97;letter-spacing:-3.7px;margin:19px 0 23px;max-width:690px}
+    .hero-copy h1 span{color:#005aff}
+    .hero-copy p{font-size:18px;line-height:1.45;max-width:590px;color:#5f6975;margin-bottom:28px}
+    .hero-actions{margin-bottom:28px}
+    .hero-facts{display:flex;gap:26px;flex-wrap:wrap}
+    .hero-fact{display:flex;align-items:center;gap:10px;color:#56616c;font-size:12px;line-height:1.25}
+    .hero-fact b{color:#005aff;font-size:16px}
+    .hero-visual{min-height:505px;position:relative;border-radius:38px;overflow:hidden;background:linear-gradient(145deg,#dfeaff,#f8fbff 57%,#cdddf8);box-shadow:0 28px 70px rgba(24,61,112,.12);border:1px solid rgba(0,90,255,.08)}
+    .visual-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,90,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(0,90,255,.055) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 80%)}
+    .ac-scene{position:absolute;inset:0}
+    .air-wall{position:absolute;right:-15%;top:5%;width:80%;height:76%;background:linear-gradient(150deg,#fff,#edf4ff);border-radius:50%;transform:rotate(-12deg);box-shadow:inset 0 0 80px rgba(0,90,255,.05)}
+    .ac-unit{position:absolute;right:13%;top:20%;width:67%;height:115px;background:linear-gradient(#fff,#e9f1fb);border-radius:16px 16px 27px 27px;box-shadow:0 22px 34px rgba(33,61,97,.16),inset 0 -3px 8px rgba(0,90,255,.05);transform:perspective(600px) rotateY(-8deg)}
+    .ac-top{height:16px;border-radius:16px 16px 0 0;background:#f9fbff;border-bottom:1px solid #d9e4f3}
+    .ac-front{display:flex;gap:5px;padding:21px 23px}
+    .ac-front span{height:2px;background:#b9cce4;flex:1;border-radius:4px}
+    .ac-display{position:absolute;right:19px;top:42px;color:#005aff;font-size:12px;font-weight:900}
+    .air-flow{position:absolute;width:150px;height:90px;border-bottom:2px solid rgba(0,90,255,.18);border-radius:0 0 50% 50%;right:16%;top:125px;transform:rotate(7deg);animation:flow 3.5s ease-in-out infinite}
+    .air-flow.a2{top:148px;right:20%;width:110px;animation-delay:.6s}.air-flow.a3{top:171px;right:25%;width:75px;animation-delay:1.1s}
+    .tech-card{position:absolute;left:28px;bottom:30px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.95);border-radius:17px;padding:13px 15px;display:flex;align-items:center;gap:10px;box-shadow:0 15px 35px rgba(20,54,93,.12);min-width:225px}
+    .tech-avatar{width:38px;height:38px;border-radius:12px;background:none;color:white;display:grid;place-items:center;font-size:11px;font-weight:900}
+    .tech-card strong{display:block;font-size:12px}.tech-card small{display:block;color:#7a8794;font-size:10px;margin-top:2px}.tech-card i{margin-left:auto;color:#005aff;font-style:normal;font-weight:900}
+    .temp-card{position:absolute;right:25px;bottom:30px;background:#10191a;color:#fff;border-radius:17px;padding:14px 17px;display:flex;align-items:center;gap:9px;box-shadow:0 15px 35px rgba(20,54,93,.17)}
+    .temp-card strong{font-size:27px;line-height:1}.temp-card span{font-size:9px;color:#aab8b8;line-height:1.2}
+    .works-section{background:#fff}
+    .blue{color:#005aff}
+    .works-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:16px}
+    .work-card{background:#f5f8fc;border-radius:24px;overflow:hidden;border:1px solid #e5ebf2;transition:.3s}
+    .work-card:hover{transform:translateY(-7px);box-shadow:0 22px 50px rgba(25,57,96,.1)}
+    .work-art{height:250px;position:relative;overflow:hidden}
+    .art-office{background:linear-gradient(145deg,#dfe9f7,#fff 60%,#b9d0ed)}
+    .art-home{background:linear-gradient(145deg,#e7f1ff,#fff)}
+    .art-vent{background:linear-gradient(145deg,#d9e7f8,#edf5ff)}
+    .room-line{position:absolute;bottom:34px;left:0;right:0;height:2px;background:rgba(0,90,255,.15)}
+    .mini-ac{position:absolute;right:18%;top:30%;width:42%;height:55px;background:linear-gradient(#fff,#e7eef7);border-radius:9px 9px 15px 15px;box-shadow:0 14px 22px rgba(39,69,103,.12)}
+    .mini-ac:after{content:"";position:absolute;left:15%;right:15%;bottom:10px;height:2px;background:#b8cbe2}
+    .art-home .mini-ac{right:17%;top:25%;width:48%}
+    .plant{position:absolute;left:18%;bottom:0;width:42px;height:105px;border-radius:50% 50% 0 0;background:linear-gradient(90deg,#b7d1c3,#d9eadf);transform:rotate(-7deg)}
+    .duct{position:absolute;left:17%;top:24%;width:68%;height:70px;border:18px solid #b7cae0;border-radius:50%;transform:rotate(-8deg);box-shadow:inset 0 0 15px rgba(0,90,255,.12)}
+    .fan{position:absolute;right:17%;bottom:22%;width:68px;height:68px;border:6px solid #8fa9c5;border-radius:50%;background:repeating-conic-gradient(#dce8f5 0 12deg,#a7bfd9 12deg 18deg)}
+    .work-meta{padding:18px 20px 21px}.work-meta span{display:block;color:#005aff;text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:900;margin-bottom:7px}.work-meta strong{display:block;font-size:17px}.work-meta small{display:block;color:#7a858f;font-size:12px;margin-top:4px}
+    @keyframes flow{0%,100%{transform:translateY(0) rotate(7deg);opacity:.25}50%{transform:translateY(7px) rotate(7deg);opacity:.75}}
+
+    /* ===================== ПЛАВНЫЕ АНИМАЦИИ =====================
+       Все эффекты работают без библиотек и автоматически отключаются
+       для пользователей с настройкой "уменьшить движение".
+    ================================================================ */
+    html{scroll-behavior:smooth}
+    .hero-grid > div:first-child{animation:heroText .8s cubic-bezier(.2,.7,.2,1) both}
+    .hero-visual{animation:heroCard .9s cubic-bezier(.2,.7,.2,1) .12s both}
+    .eyebrow{animation:fadeUp .7s ease both}
+    .service,.adv,.step,details{
+      animation:fadeUp .7s ease both;
+      transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+    }
+    .service:nth-child(2),.adv:nth-child(2),.step:nth-child(2){animation-delay:.06s}
+    .service:nth-child(3),.adv:nth-child(3),.step:nth-child(3){animation-delay:.12s}
+    .service:nth-child(4),.adv:nth-child(4),.step:nth-child(4){animation-delay:.18s}
+    .service:nth-child(5){animation-delay:.24s}
+    .service:nth-child(6){animation-delay:.30s}
+    .service:hover{transform:translateY(-7px) scale(1.01)}
+    .step:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(18,34,39,.08)}
+    .adv:hover{transform:translateY(-5px);background:rgba(255,255,255,.06)}
+    details:hover{border-color:#b9cced}
+    .btn{transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+    .btn:hover{box-shadow:0 10px 25px rgba(0,90,255,.22)}
+    .logo-mark{transition:transform .3s ease,box-shadow .3s ease}
+    .logo:hover .logo-mark{transform:rotate(-6deg) scale(1.06);box-shadow:0 8px 22px rgba(0,90,255,.25)}
+    .floating{animation:float 3.2s ease-in-out infinite}
+    .climate-icon{animation:breathe 3s ease-in-out infinite}
+    .offer{overflow:hidden;position:relative}
+    .offer:after{content:"";position:absolute;width:280px;height:280px;border:1px solid rgba(0,90,255,.08);border-radius:50%;right:-120px;top:-140px;pointer-events:none}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes heroText{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes heroCard{from{opacity:0;transform:translateX(28px) scale(.97)}to{opacity:1;transform:translateX(0) scale(1)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+    @keyframes breathe{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.05) rotate(-3deg)}}
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+    }
+
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr}.hero-visual{min-height:430px}.works-grid{grid-template-columns:1fr 1fr}.work-large{grid-column:1/-1}
+      .contact-cta{grid-template-columns:1fr;padding:34px}
+      .nav-links{display:none}.hero-grid,.offer{grid-template-columns:1fr}.services{grid-template-columns:repeat(2,1fr)}
+      .advantages,.steps{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{flex-direction:column}.footer-contact{text-align:left}
+    }
+    @media(max-width:600px){
+      .hero{padding:46px 0 54px}.hero-copy h1{letter-spacing:-2.4px}.hero-visual{min-height:360px;border-radius:26px}.hero-facts{gap:14px}.hero-fact{font-size:11px}.tech-card{left:15px;bottom:17px}.temp-card{right:15px;bottom:17px}.works-grid{grid-template-columns:1fr}.work-large{grid-column:auto}.work-art{height:210px}
+      .contact-cta{padding:27px;border-radius:24px}.contact-copy h2{font-size:34px}.contact-phone{font-size:24px}
+      .container{width:min(var(--container),calc(100% - 28px))}
+      .top .container{display:none} nav{height:66px}.phone{display:none}
+      .hero{padding:48px 0 55px} h1{letter-spacing:-2.2px}.hero p{font-size:16px}
+      section{padding:60px 0}.section-head{display:block}.section-head h2,.offer h2{font-size:34px;margin-bottom:15px}
+      .services,.advantages,.steps{grid-template-columns:1fr}.offer{padding:28px;border-radius:24px}
+      .hero-card{min-height:330px}.climate-icon{font-size:65px}.floating{font-size:13px}
+    }
+
+    /* ============================================================
+       НАДЁЖНАЯ АДАПТИВНОСТЬ
+       Этот блок только переопределяет мобильные размеры.
+       Десктопная композиция основной версии не изменяется.
+    ============================================================ */
+    .brand-logo{
+      width:auto;
+      height:44px;
+      max-width:190px;
+      object-fit:contain;
+      object-position:left center;
+    }
+    .logo-fallback{display:flex;align-items:center;gap:11px}
+    .logo-fallback .logo-mark{flex:0 0 auto}
+    .mobile-call{display:none}
+
+    @media (max-width:1100px) and (min-width:901px){
+      .container{width:min(var(--container),calc(100% - 32px))}
+      nav{gap:16px}
+      .nav-links{gap:16px;font-size:13px}
+      .phone{font-size:14px}
+    }
+
+    @media (max-width:900px){
+      .container{width:calc(100% - 32px);max-width:none}
+      nav{height:70px;gap:12px}
+      .nav-links,.phone{display:none!important}
+      .mobile-call{display:inline-flex;align-items:center;justify-content:center}
+      .brand-logo{height:40px;max-width:175px}
+      .logo{min-width:0;flex:1}
+      .hero{min-height:0;padding:52px 0 58px}
+      .hero-grid{grid-template-columns:minmax(0,1fr);gap:30px}
+      .hero-copy{padding-top:0;min-width:0}
+      .hero-copy h1{
+        font-size:clamp(38px,8.7vw,56px);
+        line-height:1.01;
+        letter-spacing:-2.6px;
+        max-width:100%;
+        overflow-wrap:break-word;
+      }
+      .hero-copy p{font-size:17px;max-width:100%;margin-bottom:24px}
+      .hero-actions{gap:10px}
+      .hero-actions .btn{min-height:50px}
+      .hero-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+      .hero-fact{min-width:0}
+      .hero-visual{min-height:390px;width:100%;border-radius:28px}
+      .works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .work-large{grid-column:1/-1}
+      .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .advantages,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .contact-cta{grid-template-columns:minmax(0,1fr);gap:28px;padding:34px}
+      .footer-grid{flex-direction:column}
+      .footer-contact{text-align:left}
+    }
+
+    @media (max-width:600px){
+      .container{width:calc(100% - 28px)}
+      nav{height:64px}
+      .brand-logo{height:36px;max-width:150px}
+      .mobile-call{padding:10px 12px;font-size:12px}
+      .hero{padding:42px 0 48px}
+      .eyebrow{font-size:11px;padding:7px 10px;max-width:100%;white-space:normal}
+      .hero-copy h1{
+        font-size:clamp(35px,10.8vw,47px);
+        line-height:1;
+        letter-spacing:-2px;
+        margin:16px 0 18px;
+      }
+      .hero-copy p{font-size:15px;line-height:1.45}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:9px}
+      .hero-actions .btn{width:100%}
+      .hero-facts{grid-template-columns:1fr 1fr;gap:13px}
+      .hero-fact{font-size:11px}
+      .hero-fact:nth-child(3){grid-column:1/-1}
+      .hero-visual{min-height:315px;border-radius:24px}
+      .ac-unit{right:8%;top:17%;width:78%;height:88px}
+      .ac-front{padding:16px 17px}
+      .ac-display{right:14px;top:32px;font-size:10px}
+      .air-flow{top:98px;right:9%;width:120px;height:65px}
+      .air-flow.a2{top:117px;right:15%;width:90px}
+      .air-flow.a3{top:136px;right:21%;width:62px}
+      .tech-card{left:13px;bottom:13px;min-width:0;max-width:205px;padding:10px 11px}
+      .tech-avatar{width:33px;height:33px}
+      .tech-card strong{font-size:11px}
+      .tech-card small{font-size:9px}
+      .temp-card{right:13px;bottom:13px;padding:10px 12px}
+      .temp-card strong{font-size:22px}
+      .temp-card span{font-size:8px}
+      section{padding:58px 0}
+      .section-head{display:block;margin-bottom:25px}
+      .section-head h2{font-size:34px;line-height:1.04;letter-spacing:-1.6px;margin-bottom:12px}
+      .section-head p{font-size:14px}
+      .works-grid,.services,.advantages,.steps{grid-template-columns:1fr}
+      .work-large{grid-column:auto}
+      .work-art{height:205px}
+      .service{min-height:0;padding:22px}
+      .service-icon{margin-bottom:18px}
+      .adv,.step{padding:21px}
+      .step-num{margin-bottom:28px}
+      .contact-cta{padding:26px;border-radius:24px}
+      .contact-copy h2{font-size:34px;line-height:1.05;letter-spacing:-1.6px}
+      .contact-copy p{font-size:15px}
+      .contact-card{width:100%;padding:23px}
+      .contact-phone{font-size:24px;overflow-wrap:anywhere}
+      .contact-card .btn{width:100%}
+      .footer-grid{gap:22px}
+    }
+
+    @media (max-width:370px){
+      .container{width:calc(100% - 24px)}
+      .brand-logo{max-width:135px}
+      .mobile-call{padding:9px 10px}
+      .hero-copy h1{font-size:34px}
+      .hero-facts{grid-template-columns:1fr}
+      .hero-fact:nth-child(3){grid-column:auto}
+      .hero-visual{min-height:285px}
+      .tech-card{display:none}
+      .temp-card{right:10px;bottom:10px}
+    }
+
+  </style>
+</head>
+<body>
+  <!-- ===================== НАСТРОЙКИ САЙТА =====================
+       Здесь проще всего менять телефон, город и название компании. Для логотипа просто замените файл logo.png.
+       Остальной текст также можно редактировать прямо в HTML.
+  ================================================================ -->
+
+  <div class="top">
+    <div class="container">
+      <span>Челябинск и область</span>
+      <span>Ежедневно · 08:00–22:00</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top" aria-label="Эталон Климат — на главную">
+          <img class="brand-logo" src="logo.png" alt="Эталон Климат" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <!-- <span class="logo-fallback"><span class="logo-mark">Э</span> -->
+          <span><span class="et-sp">ЭТАЛОН</span> <span class="kl-sp">КЛИМАТА</span></span>
+        </a>
+        <div class="nav-links">
+          <a href="#works">Наши работы</a>
+          <a href="#services">Услуги</a>
+          <a href="#advantages">Преимущества</a>
+          <a href="#contacts">Контакты</a>
+        </div>
+        <!-- ИЗМЕНИТЕ ТЕЛЕФОН ЗДЕСЬ -->
+        <a class="phone" href="tel:+79028692262">+7 (902) 869-22-62</a>
+        <a class="mobile-call" href="tel:+79028692262">Позвонить</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">● Челябинск · выезд по городу и области</span>
+          <h1>Профессиональный сервис <span>кондиционеров</span> и вентиляции</h1>
+          <p>Чистый воздух, надёжная работа и комфорт в любое время года. Ремонтируем, обслуживаем и устанавливаем климатическое оборудование.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contacts">Позвонить специалисту</a>
+            <a class="btn secondary" href="#services">Смотреть услуги</a>
+          </div>
+          <div class="hero-facts">
+            <div class="hero-fact"><b>01</b><span>Выезд<br>в день обращения</span></div>
+            <div class="hero-fact"><b>02</b><span>Диагностика<br>перед ремонтом</span></div>
+            <div class="hero-fact"><b>03</b><span>Гарантия<br>на работы</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="visual-grid"></div>
+          <div class="ac-scene">
+            <div class="air-wall"></div>
+            <div class="ac-unit">
+              <div class="ac-top"></div>
+              <div class="ac-front">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="ac-display">24°</div>
+              <div class="air-flow a1"></div><div class="air-flow a2"></div><div class="air-flow a3"></div>
+            </div>
+            <div class="tech-card">
+              <div class="tech-avatar"><img src="logo.png" alt=""></div>
+              <div><strong>Эталон Климата</strong><small>Техника под контролем</small></div>
+              <i>✓</i>
+            </div>
+            <div class="temp-card"><strong>24°</strong><span>комфортный<br>климат</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="works" class="works-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Работы, которые<br><span class="blue">говорят за нас</span></h2>
+          <p>От квартир и загородных домов до офисов, магазинов и коммерческих помещений.</p>
+        </div>
+        <div class="works-grid">
+          <article class="work-card work-large">
+            <div class="work-art art-office"><div class="mini-ac"></div><div class="room-line"></div></div>
+            <div class="work-meta"><span>Офис</span><strong>Монтаж сплит-систем</strong><small>Под ключ · 4 помещения</small></div>
+          </article>
+          <article class="work-card">
+            <div class="work-art art-home"><div class="mini-ac"></div><div class="plant"></div></div>
+            <div class="work-meta"><span>Квартира</span><strong>Чистка и обслуживание</strong><small>До / после</small></div>
+          </article>
+          <article class="work-card">
+            <div class="work-art art-vent"><div class="duct"></div><div class="fan"></div></div>
+            <div class="work-meta"><span>Бизнес</span><strong>Вентиляция</strong><small>Диагностика и ремонт</small></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <h2>Все работы по климату — в одном месте</h2>
+          <p>От простой диагностики до комплексного обслуживания систем кондиционирования и вентиляции.</p>
+        </div>
+        <div class="services">
+          <article class="service"><div class="service-icon">⌁</div><h3>Ремонт кондиционеров</h3><p>Диагностика неисправностей, ремонт платы, компрессора, дренажа и других узлов.</p><div class="price">от 1 500 ₽</div></article>
+          <article class="service"><div class="service-icon">✦</div><h3>Чистка и обслуживание</h3><p>Глубокая очистка внутреннего и внешнего блока, проверка основных параметров.</p><div class="price">от 1 800 ₽</div></article>
+          <article class="service"><div class="service-icon">◌</div><h3>Заправка фреоном</h3><p>Поиск причины утечки, вакуумирование и заправка системы до рабочих параметров.</p><div class="price">от 2 500 ₽</div></article>
+          <article class="service"><div class="service-icon">↗</div><h3>Монтаж кондиционеров</h3><p>Установка новых систем с аккуратной прокладкой трассы и запуском оборудования.</p><div class="price">от 6 500 ₽</div></article>
+          <article class="service"><div class="service-icon">↙</div><h3>Демонтаж и перенос</h3><p>Безопасный демонтаж, сохранение фреона и подготовка оборудования к новому монтажу.</p><div class="price">от 2 500 ₽</div></article>
+          <article class="service"><div class="service-icon">≋</div><h3>Вентиляция</h3><p>Диагностика, ремонт, чистка и обслуживание бытовых и коммерческих вентиляционных систем.</p><div class="price">от 2 000 ₽</div></article>
+        </div>
+        <div style="text-align:center;margin-top:28px">
+          <a class="btn" href="#contacts">Позвонить и проконсультироваться</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="advantages">
+      <div class="container">
+        <div class="section-head">
+          <h2>Почему нас выбирают</h2>
+          <p>Работаем аккуратно, объясняем понятным языком и не предлагаем лишнего.</p>
+        </div>
+        <div class="advantages">
+          <div class="adv"><strong>01</strong><h3>Опыт</h3><p>Разбираемся с оборудованием разных производителей и поколений.</p></div>
+          <div class="adv"><strong>02</strong><h3>Скорость</h3><p>Стараемся организовать выезд специалиста в удобное для вас время.</p></div>
+          <div class="adv"><strong>03</strong><h3>Прозрачно</h3><p>Сначала диагностика и согласование работ — затем ремонт.</p></div>
+          <div class="adv"><strong>04</strong><h3>Гарантия</h3><p>Предоставляем гарантию на выполненные работы и установленные детали.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <h2>Как всё происходит</h2>
+          <p>Четыре простых шага от звонка до исправного оборудования.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step-num">ШАГ 01</div><h3>Заявка</h3><p>Звоните нам и коротко описываете проблему.</p></div>
+          <div class="step"><div class="step-num">ШАГ 02</div><h3>Диагностика</h3><p>Специалист приезжает и определяет причину неисправности.</p></div>
+          <div class="step"><div class="step-num">ШАГ 03</div><h3>Согласование</h3><p>Обсуждаем стоимость и перечень необходимых работ.</p></div>
+          <div class="step"><div class="step-num">ШАГ 04</div><h3>Результат</h3><p>Выполняем работу, проверяем систему и передаём её вам.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container">
+        <div class="contact-cta">
+          <div class="contact-copy">
+            <span class="eyebrow">Свяжитесь с нами</span>
+            <h2>Нужен ремонт или обслуживание?</h2>
+            <p>Позвоните в «Эталон Климат». Расскажите, что произошло с оборудованием — подскажем по дальнейшим действиям и договоримся о выезде специалиста.</p>
+          </div>
+          <div class="contact-card">
+            <span>Звоните ежедневно</span>
+            <a class="contact-phone" href="tel:+79028692262">+7 (902) 869-22-62</a>
+            <small>08:00–22:00 · Челябинск и область</small>
+            <a class="btn" href="tel:+79028692262">Позвонить сейчас</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head">
+          <h2>Частые вопросы</h2>
+          <p>Основные вопросы, которые обычно возникают перед вызовом специалиста.</p>
+        </div>
+        <div class="faq">
+          <details><summary>Можно ли отремонтировать кондиционер любой марки?</summary><p>Да, мы работаем с большинством распространённых бытовых и коммерческих брендов. Точный перечень работ определяется после диагностики.</p></details>
+          <details><summary>Сколько стоит диагностика?</summary><p>Базовая диагностика — от 800 ₽. При заказе ремонта её стоимость можно включить в стоимость работ.</p></details>
+          <details><summary>Как быстро вы сможете приехать?</summary><p>Обычно стараемся подобрать ближайшее удобное окно. Точное время зависит от загрузки мастеров и адреса.</p></details>
+          <details><summary>Есть ли гарантия?</summary><p>Да. Срок гарантии зависит от типа выполненных работ и используемых комплектующих — уточняется при оформлении заказа.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a class="logo" href="#top" aria-label="Эталон Климат — на главную">
+          <img class="brand-logo" src="logo.png" alt="Эталон Климат" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <span class="logo-fallback"><span>ЭТАЛОН КЛИМАТА</span></span>
+        </a>
+        <p>Ремонт и обслуживание кондиционеров и вентиляции в Челябинске.</p>
+        <small>© 2026 Эталон Климат. Все права защищены.</small>
+      </div>
+      <div class="footer-contact">
+        <!-- ИЗМЕНИТЕ ТЕЛЕФОН ЗДЕСЬ -->
+        <a href="tel:+79028692262">+7 (902) 869-22-62</a>
+        <p>Челябинск и область<br>Ежедневно 08:00–22:00</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
