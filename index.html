@@ -49,7 +49,7 @@
     .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
     .section-head h2{font-size:42px;line-height:1.05;letter-spacing:-2px;margin:0}
     .section-head p{max-width:470px;color:var(--muted);margin:0}
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .services{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
     .service{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:25px;min-height:220px;transition:.2s}
     .service:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
     .service-icon{width:48px;height:48px;border-radius:15px;background:#e8f0ff;color:var(--accent-dark);display:grid;place-items:center;font-size:22px;margin-bottom:24px}
@@ -376,7 +376,7 @@
         <div class="hero-copy">
           <span class="eyebrow">● Челябинск · выезд по городу и области</span>
           <h1>Профессиональный сервис <span>кондиционеров</span> и вентиляции</h1>
-          <p>Чистый воздух, надёжная работа и комфорт в любое время года. Ремонтируем, обслуживаем и устанавливаем климатическое оборудование.</p>
+          <p>Чистый воздух, надёжная работа и комфорт в любое время года. Устанавливаем, обслуживаем и ремонтируем климатическое оборудование.</p>
           <div class="hero-actions">
             <a class="btn" href="#contacts">Позвонить специалисту</a>
             <a class="btn secondary" href="#services">Смотреть услуги</a>
@@ -436,16 +436,14 @@
     <section id="services">
       <div class="container">
         <div class="section-head">
-          <h2>Все работы по климату — в одном месте</h2>
-          <p>От простой диагностики до комплексного обслуживания систем кондиционирования и вентиляции.</p>
+          <h2>Все работы по климату в одном месте:</h2>
+          <p>От идеи и точного расчета до идеального монтажа и сервиса систем кондиционирования и вентиляции</p>
         </div>
         <div class="services">
-          <article class="service"><div class="service-icon">⌁</div><h3>Ремонт кондиционеров</h3><p>Диагностика неисправностей, ремонт платы, компрессора, дренажа и других узлов.</p><div class="price">от 1 500 ₽</div></article>
-          <article class="service"><div class="service-icon">✦</div><h3>Чистка и обслуживание</h3><p>Глубокая очистка внутреннего и внешнего блока, проверка основных параметров.</p><div class="price">от 1 800 ₽</div></article>
-          <article class="service"><div class="service-icon">◌</div><h3>Заправка фреоном</h3><p>Поиск причины утечки, вакуумирование и заправка системы до рабочих параметров.</p><div class="price">от 2 500 ₽</div></article>
-          <article class="service"><div class="service-icon">↗</div><h3>Монтаж кондиционеров</h3><p>Установка новых систем с аккуратной прокладкой трассы и запуском оборудования.</p><div class="price">от 6 500 ₽</div></article>
-          <article class="service"><div class="service-icon">↙</div><h3>Демонтаж и перенос</h3><p>Безопасный демонтаж, сохранение фреона и подготовка оборудования к новому монтажу.</p><div class="price">от 2 500 ₽</div></article>
-          <article class="service"><div class="service-icon">≋</div><h3>Вентиляция</h3><p>Диагностика, ремонт, чистка и обслуживание бытовых и коммерческих вентиляционных систем.</p><div class="price">от 2 000 ₽</div></article>
+          <article class="service"><div class="service-icon">⌁</div><h3>Проектируем</h3><p>разрабатываем проекты под квартиры, загородные дома, офисы, рестораны и производства.</p></article>
+          <article class="service"><div class="service-icon">✦</div><h3>Поставляем климатическое оборудование</h3><p>Подбираем оптимальные линейки оборудования - от надежного эконома до премиум-систем. Используем только сертифицированные расходники (медные трубы, изоляцию, крепеж), что исключает протечки и поломки.)</p></article>
+          <article class="service"><div class="service-icon">≋</div><h3>Монтируем</h3><p>Работы выполняют штатные монтажники с опытом работы от 5 лет и профильным образованием. Используем строительные пылесосы и алмазное бурение. Минимизируем пыль и сохраняем отделку. Проверяем гермитичность системы, тестируем работу во всех режимах и обучаем вас управлению климатом.</p></article>
+          <article class="service"><div class="service-icon">↗</div><h3>Обслуживаем</h3><p>Проводим чистку, дезинфекцию, дозаправку хладагентом и проверку автоматики для продления срока службы техники.</p></article>  
         </div>
         <div style="text-align:center;margin-top:28px">
           <a class="btn" href="#contacts">Позвонить и проконсультироваться</a>
@@ -475,10 +473,10 @@
           <p>Четыре простых шага от звонка до исправного оборудования.</p>
         </div>
         <div class="steps">
-          <div class="step"><div class="step-num">ШАГ 01</div><h3>Заявка</h3><p>Звоните нам и коротко описываете проблему.</p></div>
-          <div class="step"><div class="step-num">ШАГ 02</div><h3>Диагностика</h3><p>Специалист приезжает и определяет причину неисправности.</p></div>
-          <div class="step"><div class="step-num">ШАГ 03</div><h3>Согласование</h3><p>Обсуждаем стоимость и перечень необходимых работ.</p></div>
-          <div class="step"><div class="step-num">ШАГ 04</div><h3>Результат</h3><p>Выполняем работу, проверяем систему и передаём её вам.</p></div>
+          <div class="step"><div class="step-num">ШАГ 01</div><h3>Заявка на выезд инженера</h3><p>Приедем на объект, сделаем замеры, выслушаем пожелания.</p></div>
+          <div class="step"><div class="step-num">ШАГ 02</div><h3>Проект и смета</h3><p>Подберем оборудование под ваш бюджет и согласуем итоговую стоимость.</p></div>
+          <div class="step"><div class="step-num">ШАГ 03</div><h3>Доставка и монтаж</h3><p>Привезем технику, выполним работы аккуратно и точно в срок.</p></div>
+          <div class="step"><div class="step-num">ШАГ 04</div><h3>Гарантия на сервис</h3><p>Запустим систему, передадим документы и возьмем объект на обслуживание.</p></div>
         </div>
       </div>
     </section>
