@@ -157,10 +157,6 @@
     .work-meta{padding:18px 20px 21px}.work-meta span{display:block;color:#005aff;text-transform:uppercase;letter-spacing:.08em;font-size:10px;font-weight:900;margin-bottom:7px}.work-meta strong{display:block;font-size:17px}.work-meta small{display:block;color:#7a858f;font-size:12px;margin-top:4px}
     @keyframes flow{0%,100%{transform:translateY(0) rotate(7deg);opacity:.25}50%{transform:translateY(7px) rotate(7deg);opacity:.75}}
 
-    /* ===================== ПЛАВНЫЕ АНИМАЦИИ =====================
-       Все эффекты работают без библиотек и автоматически отключаются
-       для пользователей с настройкой "уменьшить движение".
-    ================================================================ */
     html{scroll-behavior:smooth}
     .hero-grid > div:first-child{animation:heroText .8s cubic-bezier(.2,.7,.2,1) both}
     .hero-visual{animation:heroCard .9s cubic-bezier(.2,.7,.2,1) .12s both}
@@ -214,7 +210,6 @@
     }
 
 
-    /* Галерея работ — третий ряд на всю ширину Works */
     .gallery-card{
       grid-column:1 / -1;
       height:260px;
@@ -289,11 +284,6 @@
     }
     .gallery-card:hover .gallery-arrow{transform:translate(3px,-3px)}
 
-    /* ============================================================
-       НАДЁЖНАЯ АДАПТИВНОСТЬ
-       Этот блок только переопределяет мобильные размеры.
-       Десктопная композиция основной версии не изменяется.
-    ============================================================ */
     .brand-logo{
       width:auto;
       height:44px;
@@ -391,7 +381,7 @@
       .gallery-card{height:205px;border-radius:22px}
       .gallery-label{left:20px;bottom:20px}
       .gallery-label strong{font-size:28px}
-      .gallery-arrow{display:none;}
+      .gallery-arrow{display: none;}
       .contact-cta{padding:26px;border-radius:24px}
       .contact-copy h2{font-size:34px;line-height:1.05;letter-spacing:-1.6px}
       .contact-copy p{font-size:15px}
@@ -416,10 +406,6 @@
   </style>
 </head>
 <body>
-  <!-- ===================== НАСТРОЙКИ САЙТА =====================
-       Здесь проще всего менять телефон, город и название компании. Для логотипа просто замените файл logo.png.
-       Остальной текст также можно редактировать прямо в HTML.
-  ================================================================ -->
 
   <div class="top">
     <div class="container">
@@ -433,7 +419,6 @@
       <nav>
         <a class="logo" href="#top" aria-label="Эталон Климат — на главную">
           <img class="brand-logo" src="logo.png" alt="Эталон Климат" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <!-- <span class="logo-fallback"><span class="logo-mark">Э</span> -->
           <span><span class="et-sp">ЭТАЛОН</span> <span class="kl-sp">КЛИМАТА</span></span>
         </a>
         <div class="nav-links">
@@ -442,7 +427,6 @@
           <a href="#advantages">Преимущества</a>
           <a href="#contacts">Контакты</a>
         </div>
-        <!-- ИЗМЕНИТЕ ТЕЛЕФОН ЗДЕСЬ -->
         <a class="phone" href="tel:+79028692262">+7 (902) 869-22-62</a>
         <a class="mobile-call" href="tel:+79028692262">Позвонить</a>
       </nav>
@@ -510,7 +494,6 @@
             <div class="work-art art-vent"><div class="duct"></div><div class="fan"></div></div>
             <div class="work-meta"><span>Бизнес</span><strong>Вентиляция</strong><small>Диагностика и ремонт</small></div>
           </article>
-          <!-- ГАЛЕРЕЯ РАБОТ: замените i.webp на свою картинку, HTML менять не нужно -->
           <a class="gallery-card" href="gallery.html" aria-label="Открыть галерею работ">
             <img src="i.webp" alt="Галерея работ" loading="lazy">
             <span class="gallery-overlay"></span>
@@ -617,7 +600,6 @@
         <small>© 2026 Эталон Климата. Все права защищены.</small>
       </div>
       <div class="footer-contact">
-        <!-- ИЗМЕНИТЕ ТЕЛЕФОН ЗДЕСЬ -->
         <a href="tel:+79028692262">+7 (902) 869-22-62</a>
         <p>Челябинск и область<br>Ежедневно 08:00–22:00</p>
       </div>
