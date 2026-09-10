@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Галерея работ — Эталон Климат</title>
+  <meta name="description" content="Галерея выполненных работ компании Эталон Климат в Челябинске.">
+  <style>
+    :root{--blue:#005aff;--dark:#10191a;--bg:#f5f7f8;--line:#e4e9eb}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:#111827}
+    a{text-decoration:none;color:inherit}.container{width:min(1180px,calc(100% - 40px));margin:auto}
+    header{height:76px;background:rgba(255,255,255,.94);border-bottom:1px solid var(--line);display:flex;align-items:center}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px}
+    .logo img{width:auto;height:44px;max-width:190px;object-fit:contain}
+    .back{color:#51606a;font-size:14px;font-weight:750}.back:hover{color:var(--blue)}
+    main{padding:72px 0 90px}.eyebrow{display:inline-block;background:#e6efff;color:#0047cc;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:850}
+    h1{font-size:clamp(44px,6vw,70px);line-height:.98;letter-spacing:-3px;margin:20px 0 15px}
+    .lead{color:#68717c;max-width:650px;font-size:17px;margin:0 0 38px}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .photo{cursor:pointer;height:330px;border-radius:24px;overflow:hidden;background:#dfe9f7;border:1px solid var(--line)}.photo img{cursor:pointer;}.photo:focus-visible{outline:3px solid currentColor;outline-offset:4px;border-radius:12px;}
+    .photo img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.photo:hover img{transform:scale(1.04)}
+    .photo.wide{grid-column:span 2}
+    .empty{display:grid;place-items:center;height:100%;color:#607080;font-weight:750}
+    footer{background:var(--dark);color:#aeb9ba;padding:32px 0;margin-top:0}
+
+    @media(max-width:700px){
+      .lightbox{padding:12px}
+      .lightbox-content{width:100%;height:82vh}
+      .lightbox-prev,.lightbox-next{width:42px;height:42px;font-size:25px}
+      .lightbox-prev{left:6px}.lightbox-next{right:6px}
+      .lightbox-close{top:6px;right:6px}
+      .lightbox-counter{bottom:6px}
+    }
+
+    @media(max-width:700px){
+      .container{width:calc(100% - 28px)}header{height:64px}.logo img{height:36px;max-width:150px}.back{font-size:12px}
+      main{padding:50px 0 60px}h1{font-size:42px;letter-spacing:-2px}.lead{font-size:15px}
+      .gallery-grid{grid-template-columns:1fr}.photo,.photo.wide{grid-column:auto;height:240px}
+    }
+  
+/* ===== Gallery Lightbox ===== */
+.gallery-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(0,0,0,0);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:opacity .28s ease, background .35s ease, visibility 0s linear .35s;
+  -webkit-backdrop-filter:blur(0);
+  backdrop-filter:blur(0);
+}
+.gallery-lightbox.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  background:rgba(5,8,12,.82);
+  -webkit-backdrop-filter:blur(8px);
+  backdrop-filter:blur(8px);
+  transition:opacity .28s ease, background .35s ease, visibility 0s;
+}
+.gallery-lightbox__stage{
+  position:relative;
+  width:min(92vw,1400px);
+  height:min(88vh,900px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.gallery-lightbox__image{
+  display:block;
+  max-width:calc(100% - 140px);
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border-radius:14px;
+  box-shadow:0 28px 90px rgba(0,0,0,.5);
+  cursor:default;
+  opacity:0;
+  transform:scale(.88) translateY(12px);
+  transition:opacity .3s ease, transform .38s cubic-bezier(.2,.8,.2,1);
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.gallery-lightbox.active .gallery-lightbox__image{
+  opacity:1;
+  transform:scale(1) translateY(0);
+}
+.gallery-lightbox__image.switching{
+  opacity:0;
+  transform:scale(.96);
+}
+.gallery-lightbox__button{
+  position:absolute;
+  z-index:3;
+  width:52px;
+  height:52px;
+  border:0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:rgba(255,255,255,.13);
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+  cursor:pointer;
+  transition:transform .2s ease, background .2s ease, opacity .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.gallery-lightbox__button:hover{
+  background:rgba(255,255,255,.24);
+  transform:scale(1.09);
+}
+.gallery-lightbox__button:active{
+  transform:scale(.94);
+}
+.gallery-lightbox__button:focus-visible{
+  outline:2px solid #fff;
+  outline-offset:3px;
+}
+.gallery-lightbox__close{
+  top:-4px;
+  right:-4px;
+  font-size:30px;
+  line-height:1;
+}
+.gallery-lightbox__prev{
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:38px;
+  line-height:1;
+}
+.gallery-lightbox__next{
+  right:0;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:38px;
+  line-height:1;
+}
+.gallery-lightbox__prev:hover,
+.gallery-lightbox__next:hover{
+  transform:translateY(-50%) scale(1.09);
+}
+.gallery-lightbox__counter{
+  position:absolute;
+  left:50%;
+  bottom:-2px;
+  transform:translateX(-50%);
+  padding:7px 13px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(0,0,0,.4);
+  font:600 13px/1 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  letter-spacing:.2px;
+  pointer-events:none;
+}
+body.gallery-lightbox-open{
+  overflow:hidden;
+}
+@media(max-width:700px){
+  .gallery-lightbox{padding:12px}
+  .gallery-lightbox__stage{width:100%;height:84vh}
+  .gallery-lightbox__image{max-width:calc(100% - 74px);max-height:calc(100% - 40px);border-radius:10px}
+  .gallery-lightbox__button{width:44px;height:44px}
+  .gallery-lightbox__prev{left:2px;font-size:32px}
+  .gallery-lightbox__next{right:2px;font-size:32px}
+  .gallery-lightbox__close{top:2px;right:2px;font-size:27px}
+  .gallery-lightbox__counter{bottom:0}
+}
+
+</style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="index.html" aria-label="Вернуться на главную">
+          <img src="logo.png" alt="Эталон Климат" onerror="this.style.display='none'">
+        </a>
+        <a class="back" href="index.html">← Вернуться на главную</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <span class="eyebrow">Эталон Климат · Челябинск</span>
+      <h1>Галерея работ</h1>
+      <p class="lead">Реальные объекты, монтаж и обслуживание систем кондиционирования и вентиляции.</p>
+
+      <!-- Чтобы добавить свои фотографии, заменяйте src у img или добавляйте новые блоки .photo -->
+      <div class="gallery-grid">
+        <div class="photo wide"><img src="gallery/1.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/3.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/4.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/5.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/6.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/7.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/8.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/9.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/10.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/11.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/12.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/13.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/14.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/15.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/16.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/17.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/18.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/19.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/20.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/21.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/22.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/23.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/24.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/25.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/26.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/27.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/28.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/29.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/30.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/31.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/32.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/33.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/34.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/35.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/36.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/37.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo wide"><img src="gallery/38.jpg" alt="Работа Эталон Климата"></div>
+        <div class="photo"><img src="gallery/39.jpg" alt="Работа Эталон Климата"></div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">© 2026 Эталон Климат · Челябинск</div>
+  </footer>
+
+<!-- ===== Gallery Lightbox ===== -->
+<div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+  <div class="gallery-lightbox__stage" id="galleryLightboxStage">
+    <button class="gallery-lightbox__button gallery-lightbox__close" id="galleryLightboxClose" type="button" aria-label="Закрыть">×</button>
+    <button class="gallery-lightbox__button gallery-lightbox__prev" id="galleryLightboxPrev" type="button" aria-label="Предыдущее изображение">‹</button>
+    <img class="gallery-lightbox__image" id="galleryLightboxImage" alt="" draggable="false">
+    <button class="gallery-lightbox__button gallery-lightbox__next" id="galleryLightboxNext" type="button" aria-label="Следующее изображение">›</button>
+    <div class="gallery-lightbox__counter" id="galleryLightboxCounter"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  const lightbox = document.getElementById('galleryLightbox');
+  const stage = document.getElementById('galleryLightboxStage');
+  const image = document.getElementById('galleryLightboxImage');
+  const closeButton = document.getElementById('galleryLightboxClose');
+  const prevButton = document.getElementById('galleryLightboxPrev');
+  const nextButton = document.getElementById('galleryLightboxNext');
+  const counter = document.getElementById('galleryLightboxCounter');
+
+  if (!lightbox || !image) return;
+
+  // Берём изображения непосредственно из галереи.
+  const thumbs = Array.from(document.querySelectorAll('.gallery-grid .photo img'));
+  if (!thumbs.length) return;
+
+  let current = 0;
+  let isOpen = false;
+  let isChanging = false;
+  let touchStartX = 0;
+  let previousOverflow = '';
+
+  function getSource(img) {
+    return img.dataset.full ||
+           img.dataset.src ||
+           img.getAttribute('data-original') ||
+           img.currentSrc ||
+           img.src;
+  }
+
+  function updateCounter() {
+    counter.textContent = (current + 1) + ' / ' + thumbs.length;
+    const multiple = thumbs.length > 1;
+    prevButton.hidden = !multiple;
+    nextButton.hidden = !multiple;
+  }
+
+  function preload(index) {
+    if (index < 0 || index >= thumbs.length) return;
+    const pre = new Image();
+    pre.src = getSource(thumbs[index]);
+  }
+
+  function render(index, animated) {
+    current = (index + thumbs.length) % thumbs.length;
+    const source = getSource(thumbs[current]);
+
+    updateCounter();
+    preload((current + 1) % thumbs.length);
+    preload((current - 1 + thumbs.length) % thumbs.length);
+
+    if (!animated || !isOpen) {
+      image.src = source;
+      image.alt = thumbs[current].alt || 'Изображение';
+      return;
+    }
+
+    if (isChanging) return;
+    isChanging = true;
+    image.classList.add('switching');
+
+    setTimeout(function () {
+      image.src = source;
+      image.alt = thumbs[current].alt || 'Изображение';
+
+      // Ждём загрузку, чтобы переход не показывал пустое место.
+      const finish = function () {
+        image.classList.remove('switching');
+        isChanging = false;
+      };
+
+      if (image.complete) {
+        requestAnimationFrame(finish);
+      } else {
+        image.addEventListener('load', finish, {once:true});
+      }
+    }, 150);
+  }
+
+  function open(index) {
+    if (isOpen) return;
+    isOpen = true;
+    previousOverflow = document.body.style.overflow;
+    document.body.classList.add('gallery-lightbox-open');
+    render(index, false);
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
+
+  function close() {
+    if (!isOpen) return;
+    isOpen = false;
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('gallery-lightbox-open');
+    document.body.style.overflow = previousOverflow;
+    setTimeout(function () {
+      if (!isOpen) image.src = '';
+    }, 350);
+  }
+
+  function next() {
+    if (!isOpen || thumbs.length < 2) return;
+    render(current + 1, true);
+  }
+
+  function previous() {
+    if (!isOpen || thumbs.length < 2) return;
+    render(current - 1, true);
+  }
+
+  thumbs.forEach(function (thumb, index) {
+    const parent = thumb.closest('.photo') || thumb;
+
+    parent.style.cursor = 'pointer';
+    parent.setAttribute('role', 'button');
+    parent.setAttribute('tabindex', '0');
+
+    parent.addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      open(index);
+    });
+
+    parent.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        open(index);
+      }
+    });
+  });
+
+  closeButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+    close();
+  });
+
+  prevButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+    previous();
+  });
+
+  nextButton.addEventListener('click', function (event) {
+    event.stopPropagation();
+    next();
+  });
+
+  // Клик по фону закрывает окно, клик по картинке — нет.
+  lightbox.addEventListener('click', function (event) {
+    if (event.target === lightbox || event.target === stage) close();
+  });
+
+  image.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+
+  // Горячие клавиши:
+  // ← / A = назад, → / D = вперёд, Esc = закрыть.
+  document.addEventListener('keydown', function (event) {
+    if (!isOpen) return;
+
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close();
+    } else if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') {
+      event.preventDefault();
+      next();
+    } else if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') {
+      event.preventDefault();
+      previous();
+    }
+  });
+
+  // Свайп на телефоне.
+  lightbox.addEventListener('touchstart', function (event) {
+    if (event.changedTouches.length) {
+      touchStartX = event.changedTouches[0].clientX;
+    }
+  }, {passive:true});
+
+  lightbox.addEventListener('touchend', function (event) {
+    if (!isOpen || !event.changedTouches.length) return;
+
+    const deltaX = event.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(deltaX) < 45) return;
+
+    if (deltaX < 0) next();
+    else previous();
+  }, {passive:true});
+
+  // Предзагрузка соседних изображений после загрузки страницы.
+  window.addEventListener('load', function () {
+    preload(0);
+    preload(1 % thumbs.length);
+  });
+})();
+</script>
+
+</body>
+</html>

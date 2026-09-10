@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Эталон Климат — ремонт кондиционеров и вентиляции в Челябинске</title>
-  <meta name="description" content="Эталон Климат — ремонт, обслуживание, монтаж и диагностика кондиционеров и вентиляции в Челябинске. Выезд специалиста, гарантия на работы.">
+  <title>Эталон Климата — ремонт кондиционеров и вентиляции в Челябинске</title>
+  <meta name="description" content="Эталон Климата — ремонт, обслуживание, монтаж и диагностика кондиционеров и вентиляции в Челябинске. Выезд специалиста, гарантия на работы.">
   <link rel="icon" type="image/png" href="./favicon.ico">
   <style>
     :root{
@@ -213,6 +213,82 @@
       .hero-card{min-height:330px}.climate-icon{font-size:65px}.floating{font-size:13px}
     }
 
+
+    /* Галерея работ — третий ряд на всю ширину Works */
+    .gallery-card{
+      grid-column:1 / -1;
+      height:260px;
+      position:relative;
+      display:block;
+      overflow:hidden;
+      border-radius:24px;
+      border:1px solid #e5ebf2;
+      background:#dfe9f7;
+      isolation:isolate;
+      transition:transform .35s ease,box-shadow .35s ease;
+    }
+    .gallery-card img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      object-position:center;
+      transition:transform .7s cubic-bezier(.2,.7,.2,1);
+    }
+    .gallery-overlay{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:linear-gradient(90deg,rgba(5,18,38,.72) 0%,rgba(5,18,38,.28) 48%,rgba(5,18,38,.05) 100%);
+      transition:background .35s ease;
+    }
+    .gallery-label{
+      position:absolute;
+      z-index:2;
+      left:32px;
+      bottom:28px;
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .gallery-kicker{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-weight:800;
+      opacity:.78;
+      margin-bottom:6px;
+    }
+    .gallery-label strong{
+      font-size:34px;
+      line-height:1;
+      letter-spacing:-1.5px;
+    }
+    .gallery-arrow{
+      position:absolute;
+      left:calc(100% + 18px);
+      bottom:0;
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:50%;
+      background:#005aff;
+      font-size:21px;
+      font-weight:800;
+      transition:transform .3s ease;
+    }
+    .gallery-card:hover{
+      transform:translateY(-7px);
+      box-shadow:0 22px 50px rgba(25,57,96,.16);
+    }
+    .gallery-card:hover img{transform:scale(1.045)}
+    .gallery-card:hover .gallery-overlay{
+      background:linear-gradient(90deg,rgba(5,18,38,.78) 0%,rgba(5,18,38,.32) 52%,rgba(5,18,38,.06) 100%);
+    }
+    .gallery-card:hover .gallery-arrow{transform:translate(3px,-3px)}
+
     /* ============================================================
        НАДЁЖНАЯ АДАПТИВНОСТЬ
        Этот блок только переопределяет мобильные размеры.
@@ -312,6 +388,10 @@
       .service-icon{margin-bottom:18px}
       .adv,.step{padding:21px}
       .step-num{margin-bottom:28px}
+      .gallery-card{height:205px;border-radius:22px}
+      .gallery-label{left:20px;bottom:20px}
+      .gallery-label strong{font-size:28px}
+      .gallery-arrow{left:auto;right:0;bottom:0;width:40px;height:40px}
       .contact-cta{padding:26px;border-radius:24px}
       .contact-copy h2{font-size:34px;line-height:1.05;letter-spacing:-1.6px}
       .contact-copy p{font-size:15px}
@@ -430,6 +510,16 @@
             <div class="work-art art-vent"><div class="duct"></div><div class="fan"></div></div>
             <div class="work-meta"><span>Бизнес</span><strong>Вентиляция</strong><small>Диагностика и ремонт</small></div>
           </article>
+          <!-- ГАЛЕРЕЯ РАБОТ: замените i.webp на свою картинку, HTML менять не нужно -->
+          <a class="gallery-card" href="gallery.html" aria-label="Открыть галерею работ">
+            <img src="i.webp" alt="Галерея работ" loading="lazy">
+            <span class="gallery-overlay"></span>
+            <div class="gallery-label">
+              <span class="gallery-kicker">Наши работы</span>
+              <strong>Галерея работ</strong>
+              <span class="gallery-arrow">↗</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -441,10 +531,10 @@
           <p>От идеи и точного расчета до идеального монтажа и сервиса систем кондиционирования и вентиляции</p>
         </div>
         <div class="services">
-          <article class="service"><div class="service-icon">⌁</div><h3>Проектируем</h3><p>разрабатываем проекты под квартиры, загородные дома, офисы, рестораны и производства.</p></article>
-          <article class="service"><div class="service-icon">✦</div><h3>Поставляем климатическое оборудование</h3><p>Подбираем оптимальные линейки оборудования - от надежного эконома до премиум-систем. Используем только сертифицированные расходники (медные трубы, изоляцию, крепеж), что исключает протечки и поломки.)</p></article>
-          <article class="service"><div class="service-icon">≋</div><h3>Монтируем</h3><p>Работы выполняют штатные монтажники с опытом работы от 5 лет и профильным образованием. Используем строительные пылесосы и алмазное бурение. Минимизируем пыль и сохраняем отделку. Проверяем гермитичность системы, тестируем работу во всех режимах и обучаем вас управлению климатом.</p></article>
-          <article class="service"><div class="service-icon">↗</div><h3>Обслуживаем</h3><p>Проводим чистку, дезинфекцию, дозаправку хладагентом и проверку автоматики для продления срока службы техники.</p></article>  
+          <article class="service"><div class="service-icon">📐</div><h3>Проектируем</h3><p>Разрабатываем проекты под квартиры, загородные дома, офисы, рестораны и производства.</p></article>
+          <article class="service"><div class="service-icon">🚚</div><h3>Поставляем климатическое оборудование</h3><p>Подбираем оптимальные линейки оборудования - от надежного эконома до премиум-систем. Используем только сертифицированные расходники (медные трубы, изоляцию, крепеж), что исключает протечки и поломки.</p></article>
+          <article class="service"><div class="service-icon">🛠️</div><h3>Монтируем</h3><p>Работы выполняют монтажники с большим опытом работы. Используем строительные пылесосы и алмазное бурение. Минимизируем пыль и сохраняем отделку.</p></article>
+          <article class="service"><div class="service-icon">🔄</div><h3>Обслуживаем</h3><p>Проводим чистку, дезинфекцию, дозаправку хладагентом и проверку автоматики для продления срока службы техники.</p></article>  
         </div>
         <div style="text-align:center;margin-top:28px">
           <a class="btn" href="#contacts">Позвонить и проконсультироваться</a>
@@ -461,8 +551,8 @@
         <div class="advantages">
           <div class="adv"><strong>01</strong><h3>Опыт</h3><p>Разбираемся с оборудованием разных производителей и поколений.</p></div>
           <div class="adv"><strong>02</strong><h3>Скорость</h3><p>Стараемся организовать выезд специалиста в удобное для вас время.</p></div>
-          <div class="adv"><strong>03</strong><h3>Прозрачно</h3><p>Сначала диагностика и согласование работ — затем ремонт.</p></div>
-          <div class="adv"><strong>04</strong><h3>Гарантия</h3><p>Предоставляем гарантию на выполненные работы и установленные детали.</p></div>
+          <div class="adv"><strong>03</strong><h3>Прозрачно</h3><p>Сначала диагностика и согласование — затем ремонт.</p></div>
+          <div class="adv"><strong>04</strong><h3>Гарантия</h3><p>Предоставляем гарантию на выполненные работы и оборудование.</p></div>
         </div>
       </div>
     </section>
@@ -488,7 +578,7 @@
           <div class="contact-copy">
             <span class="eyebrow">Свяжитесь с нами</span>
             <h2>Нужен ремонт или обслуживание?</h2>
-            <p>Позвоните в «Эталон Климат». Расскажите, что произошло с оборудованием — подскажем по дальнейшим действиям и договоримся о выезде специалиста.</p>
+            <p>Доверьте свое климатическое оборудование профессионалам!</p>
           </div>
           <div class="contact-card">
             <span>Звоните ежедневно</span>
@@ -523,8 +613,8 @@
           <img class="brand-logo" src="logo.png" alt="Эталон Климат" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <span class="logo-fallback"><span>ЭТАЛОН КЛИМАТА</span></span>
         </a>
-        <p>Ремонт и обслуживание кондиционеров и вентиляции в Челябинске.</p>
-        <small>© 2026 Эталон Климат. Все права защищены.</small>
+        <p>Монтаж, обслуживание, ремонт кондиционеров и вентиляции в Челябинске.</p>
+        <small>© 2026 Эталон Климата. Все права защищены.</small>
       </div>
       <div class="footer-contact">
         <!-- ИЗМЕНИТЕ ТЕЛЕФОН ЗДЕСЬ -->
